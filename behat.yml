@@ -1,0 +1,10 @@
+default:
+  suites:
+    doctrinedynamic:
+      paths: [ %paths.base%/tests/features/ ]
+      contexts: 
+        - Fabiang\Mink\JavaScriptErrors\Behat\FeatureContext
+  extensions:
+    Fabiang\Mink\JavaScriptErrors: ~
+  testers:
+    strict: true
