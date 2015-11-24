@@ -11,6 +11,6 @@ gulp.task('compile', function () {
             js_output_file: 'ErrorHandler.min.js'
         }))
         .pipe(trim())
-        .pipe(sourcemaps.write('maps'))
+        .pipe(sourcemaps.write('maps', { sourceRoot: "src/" }))
         .pipe(gulp.dest('dist'));
 });
