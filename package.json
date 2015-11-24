@@ -1,0 +1,26 @@
+{
+  "name": "mink-javascript-errors",
+  "version": "0.0.0",
+  "description": "Mink extension for handling JavaScript errors",
+  "main": "res/js/ErrorHandler.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "~3.9.0",
+    "gulp-closure-compiler": "~0.3.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/fabiang/mink-javascript-errors.git"
+  },
+  "author": "Fabian Grutschus <f.grutschus@lubyte.de>",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/fabiang/mink-javascript-errors/issues"
+  }
+}

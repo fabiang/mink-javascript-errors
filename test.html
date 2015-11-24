@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title></title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="res/js/ErrorHandler.js"></script>
+        <script>
+            ErrorHandler.clear();
+        </script>
+    </head>
+    
+    <body>
+        <script>
+            throw new Error("first error");
+        </script>
+        
+        <script>
+            throw new Error("second error");
+        </script>
+        
+        <script>
+            jQuery.ajax("missing.html");
+        </script>
+        
+        <script>
+            console.log(ErrorHandler.get());
+        </script>
+    </body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "name": "mink-javascript-errors",
+  "description": "Mink extension for handling JavaScript errors",
+  "main": "res/js/ErrorHandler.js",
+  "authors": [
+    "Fabian Grutschus <f.grutschus@lubyte.de>"
+  ],
+  "license": "BSD-2-Clause",
+  "homepage": "https://github.com/fabiang/mink-javascript-errors",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "closure-compiler": "http://dl.google.com/closure-compiler/compiler-latest.zip"
+  }
+}
