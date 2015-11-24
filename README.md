@@ -5,6 +5,7 @@ After every step this extension checks for error and throws them as exceptions.
 Also AJAX errors are supported via jQuery.
 
 [![Build Status](https://travis-ci.org/fabiang/mink-javascript-errors.svg?branch=master)](https://travis-ci.org/fabiang/mink-javascript-errors)
+[![License](https://poser.pugx.org/fabiang/mink-javascript-errors/license)](https://packagist.org/packages/fabiang/mink-javascript-errors)
 
 ## Installation
 
