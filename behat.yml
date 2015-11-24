@@ -5,6 +5,12 @@ default:
       contexts: 
         - Fabiang\Mink\JavaScriptErrors\Behat\FeatureContext
   extensions:
+    Behat\MinkExtension:
+      base_url: file:///%paths.base%/
+      sessions:
+        default:
+          selenium2:
+            wd_host: http://localhost:4444/wd/hub
     Fabiang\Mink\JavaScriptErrors: ~
   testers:
     strict: true

@@ -61,10 +61,10 @@
                 });
             }
         },
-        handle: function (message, filename, lineno, column) {
+        handle: function (message, file, lineno, column) {
             var error = {
                 message: message,
-                filename: filename,
+                file: file,
                 lineno: lineno,
                 column: column,
                 type: "error"

@@ -39,31 +39,46 @@ use Behat\Testwork\ServiceContainer\Extension;
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Behat\Testwork\ServiceContainer\ExtensionManager;
+use Fabiang\Mink\JavaScriptErrors\Listener\FailureListener;
+use Symfony\Component\DependencyInjection\Reference;
+use Symfony\Component\DependencyInjection\Definition;
+use Behat\Behat\EventDispatcher\ServiceContainer\EventDispatcherExtension;
 
 class JavaScriptErrorsExtension implements Extension
 {
-    public function configure(ArrayNodeDefinition $builder)
-    {
-
-    }
+    const MINK_ID = 'mink';
 
     public function initialize(ExtensionManager $extensionManager)
     {
-
     }
 
     public function load(ContainerBuilder $container, array $config)
     {
-
+        $this->loadFailureListener($container);
     }
 
     public function process(ContainerBuilder $container)
     {
+    }
 
+    private function loadFailureListener(ContainerBuilder $container)
+    {
+        $definition = new Definition(FailureListener::class, [
+            new Reference(self::MINK_ID),
+        ]);
+        $definition->addTag(EventDispatcherExtension::SUBSCRIBER_TAG, array('priority' => 0));
+        $container->setDefinition('mink.listener.failure', $definition);
+    }
+
+
+    public function configure(ArrayNodeDefinition $builder)
+    {
+        $builder
+            ->addDefaultsIfNotSet();
     }
 
     public function getConfigKey()
     {
-
+        return 'js_error';
     }
 }

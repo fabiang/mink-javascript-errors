@@ -33,66 +33,10 @@
  * @license   BSD-2-Clause
  */
 
-namespace Fabiang\Mink\JavaScriptErrors\Behat;
+namespace Fabiang\Mink\JavaScriptErrors\Exception;
 
-use Behat\MinkExtension\Context\MinkContext;
-use Behat\Behat\Context\SnippetAcceptingContext;
-use Behat\Gherkin\Node\PyStringNode;
-use Behat\Gherkin\Node\TableNode;
-use PHPUnit_Framework_Assert as Assert;
-use Behat\Behat\Tester\Exception\PendingException;
+use RuntimeException as BaseRuntimeException;
 
-/**
- * Defines application features from the specific context.
- */
-final class FeatureContext extends MinkContext implements SnippetAcceptingContext
+class RuntimeException extends BaseRuntimeException
 {
-    /**
-     * @var array
-     */
-    private $errors;
-
-    /**
-     * Initializes context.
-     *
-     * Every scenario gets its own context instance.
-     * You can also pass arbitrary arguments to the
-     * context constructor through behat.yml.
-     */
-    public function __construct()
-    {
-    }
-
-    /**
-     * @Then I should have :count collected JavaScript errors
-     */
-    public function iShouldHaveCollectedJavascriptErrors($count)
-    {
-        Assert::assertCount((int) $count, $this->getErrors());
-    }
-
-    /**
-     * @Then Error :index should be of type :type with message :message
-     */
-    public function errorShouldBeOfTypeWithMessage($index, $type, $message)
-    {
-        $errors = $this->getErrors();
-        $index -= 1;
-        Assert::assertArrayHasKey($index, $errors);
-        $error = $errors[$index];
-        Assert::assertSame($type, $error['type']);
-        Assert::assertSame($message, $error['message']);
-    }
-
-    /**
-     * @return array
-     */
-    private function getErrors()
-    {
-        if ($this->errors === null) {
-            $this->errors = $this->getSession()->evaluateScript('ErrorHandler.get()');
-        }
-
-        return $this->errors;
-    }
 }
